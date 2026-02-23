@@ -1,0 +1,330 @@
+/* =================== GLOBAL THEME VARIABLES =================== */
+:root {
+  /* Light Theme */
+  --primary-light: #1E88E5;
+  --accent-light: #FF3C38;
+  --secondary-light: #FFB74D;
+  --bg-light: #f8fafc; 
+  --card-bg-light: #ffffff;
+  --text-light: #222222;
+  --text-muted-light: #666666;
+  --border-light: #e2e8f0;
+  --input-bg-light: #ffffff;
+  --shadow-light: rgba(0, 0, 0, 0.08);
+
+  /* Dark Theme */
+  --primary-dark: #60A5FA;
+  --accent-dark: #F87171;
+  --secondary-dark: #FBBF24;
+  --bg-dark: #0f172a;
+  --card-bg-dark: #1e293b;
+  --text-dark: #E2E8F0;
+  --text-muted-dark: #94a3b8;
+  --border-dark: #334155;
+  --input-bg-dark: #1e293b;
+  --shadow-dark: rgba(0, 0, 0, 0.4);
+
+  /* Active Theme (default to Light) */
+  --primary: var(--primary-light);
+  --accent: var(--accent-light);
+  --secondary: var(--secondary-light);
+  --bg: var(--bg-light);
+  --card-bg: var(--card-bg-light);
+  --text: var(--text-light);
+  --text-muted: var(--text-muted-light);
+  --border: var(--border-light);
+  --input-bg: var(--input-bg-light);
+  --shadow: var(--shadow-light);
+}
+
+[data-theme="dark"] {
+  --primary: var(--primary-dark);
+  --accent: var(--accent-dark);
+  --secondary: var(--secondary-dark);
+  --bg: var(--bg-dark);
+  --card-bg: var(--card-bg-dark);
+  --text: var(--text-dark);
+  --text-muted: var(--text-muted-dark);
+  --border: var(--border-dark);
+  --input-bg: var(--input-bg-dark);
+  --shadow: var(--shadow-dark);
+}
+
+/* =================== GLOBAL BASE STYLES =================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  font-family: 'Roboto', 'Segoe UI', sans-serif;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+section {
+  padding: 50px 100px;
+}
+
+@media (max-width: 768px) {
+  section {
+    padding: 40px 20px;
+  }
+}
+
+/* =================== HEADER / NAVBAR =================== */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 7%;
+  background-color: var(--card-bg);
+  box-shadow: 0 4px 10px var(--shadow);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  flex-wrap: wrap;
+}
+
+.logo {
+  cursor: pointer;
+  width: 100px;
+  height: 60px;
+}
+
+.navbar {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: var(--text);
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.navbar a:hover {
+  color: var(--accent);
+  background-color: rgba(255, 60, 56, 0.08);
+}
+
+.right_links {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.right_links a {
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.login {
+  color: var(--primary);
+  border: 1px solid var(--primary);
+}
+
+.login:hover {
+  background-color: var(--primary);
+  color: white;
+}
+
+.register, .logout-btn {
+  background-color: var(--primary);
+  color: white;
+}
+
+.register:hover, .logout-btn:hover {
+  background-color: var(--accent);
+  color: white;
+}
+
+.welcome-user {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text);
+}
+
+.welcome-user img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--primary);
+}
+
+/* =================== SEARCH BAR =================== */
+.search-section {
+  text-align: center;
+  margin: 50px auto;
+}
+
+.search-section h1 {
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+  color: var(--primary);
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  padding: 14px 20px;
+  border-radius: 50px;
+  background-color: var(--card-bg);
+  width: 500px;
+  max-width: 90%;
+  margin: 0 auto;
+  box-shadow: 0 4px 10px var(--shadow);
+}
+
+.search-input {
+  font-size: 16px;
+  color: var(--text);
+  margin-left: 14px;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  flex: 1;
+}
+
+.search-input::placeholder {
+  color: var(--text-muted);
+}
+
+.search-icon {
+  font-size: 24px;
+  color: var(--text-muted);
+}
+
+/* =================== BLOG POSTS =================== */
+.heading {
+  text-align: center;
+  font-size: 2.5rem;
+  color: var(--primary);
+  margin-bottom: 2rem;
+}
+
+.posts-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  padding: 50px 7%;
+}
+
+.blog-box {
+  width: 600px;
+  background-color: var(--card-bg);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px var(--shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 550px;
+}
+
+.blog-box:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px var(--shadow);
+}
+
+.blog-box .image {
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+}
+
+.blog-box .image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.blog-box .content {
+  padding: 20px;
+  text-align: left;
+}
+
+.blog-box .content h3 {
+  font-size: 22px;
+  color: var(--text);
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.blog-box .content .meta {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+}
+
+.blog-box .content p {
+  font-size: 16px;
+  color: var(--text-muted);
+  line-height: 1.4;
+  max-height: 80px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.read_btn {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+  box-shadow: 0 4px 6px var(--shadow);
+}
+
+.read_btn:hover {
+  background-color: #ff5e5b;
+}
+
+.blog-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px 15px 20px;
+}
+
+.comment_like {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.comment_like img {
+  margin-top: 10px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.comment_like img:hover {
+  transform: scale(1.2);
+}
+
+.comment_like .comment-count {
+  font-size: 16px;
+  margin-top: 10px;
+}

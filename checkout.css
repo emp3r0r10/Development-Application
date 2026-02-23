@@ -1,0 +1,508 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  scroll-behavior: smooth;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+section {
+  padding: 50px 100px;
+  background-color: #f5f5f5;
+}
+
+/* ===================== */
+/* Header / Navbar */
+header {
+  display: flex;
+  width: 100%;
+  background-color: #2E8B57;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 7%;
+  z-index: 1000;
+}
+
+header .logo {
+  cursor: pointer;
+  width: 100px;
+  height: 60px;
+}
+
+.navbar a {
+  margin: 0 1.5rem;
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  font-size: 18px;
+  transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+  color: #A8D5BA;
+}
+
+.icons div {
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  /*padding-left: 10px;*/
+  /*margin-left: 1rem;*/
+}
+
+.icons img.search,
+.icons img.cart {
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.cart-icon-container {
+  position: relative;
+  display: inline-block;
+}
+
+.cart-count {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: red;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 3px 6px;
+  border-radius: 50%;
+  /*display: none;*/
+  z-index: 10;
+}
+
+.icons img:hover {
+  transform: scale(1.1);
+}
+
+.user-dropdown {
+
+  position: relative;
+  display: inline-block;
+}
+
+.logged-in-img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-left: 1rem;
+  border: 2px solid white;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 45px;
+  right: 0;
+  background-color: white;
+  min-width: 120px;
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
+  z-index: 999;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.dropdown-menu a {
+  color: #333;
+  padding: 10px 15px;
+  text-decoration: none;
+  display: block;
+  font-size: 14px;
+}
+
+.dropdown-menu a:hover {
+  background-color: #f1f1f1;
+}
+
+#menu-btn {
+  display: none;
+  font-size: 2rem;
+}
+
+header .search-form {
+  position: absolute;
+  top: 10%;
+  right: 0;
+  background-color: white;
+  display: none;
+  padding: 10px;
+}
+
+header .search-form input {
+  border: 1px solid #ccc;
+  padding: 0.5rem;
+  font-size: 1rem;
+  width: 200px;
+  border-radius: 5px;
+}
+
+header .search-form.active {
+  display: flex;
+}
+/* ===================== */
+
+.checkout {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 20px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.checkout h3 {
+	margin-bottom: 10px;
+}
+.checkout-heading {
+  text-align: center;
+  font-size: 40px;
+  margin-bottom: 30px;
+}
+
+.checkout-container {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.left-section, .right-section {
+  flex: 1;
+  min-width: 350px;
+}
+
+.inputBox {
+  margin-bottom: 15px;
+}
+
+.inputBox input,
+.inputBox select {
+  width: 100%;
+  padding: 14px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+  outline: none;
+  transition: border 0.2s ease;
+}
+
+.inputBox input:focus,
+.inputBox select:focus {
+  border-color: #007bff;
+}
+
+.order-summary {
+  background: #fafafa;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.order-summary table {
+  width: 100%;
+  font-size: 15px;
+  border-collapse: collapse;
+}
+
+.order-summary td {
+  padding: 8px 0;
+  text-align: left;
+}
+
+.order-summary .product_name {
+  margin-right: 100px;
+}
+
+.payment-method {
+  background: #fefefe;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.payment-method h3 {
+  margin-bottom: 15px;
+}
+
+.payment-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.payment-option:hover {
+  background: #f9f9f9;
+}
+
+.payment-option input[type="radio"] {
+  transform: scale(1.2);
+}
+
+.payment-option img {
+  width: 24px;
+  height: 24px;
+}
+
+.payment-option .desc {
+  font-size: 12px;
+  color: #666;
+  margin-left: auto;
+  flex-grow: 1;
+}
+
+.privacy-note {
+  font-size: 13px;
+  color: #777;
+  margin-top: 20px;
+  line-height: 1.5;
+}
+
+.btn {
+  margin-top: 20px;
+  padding: 14px 30px;
+  background-color: #e63946;
+  color: #fff;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #d62839;
+}
+
+
+/* Overlay Background */
+.order-message-container {
+    position: fixed; /* Make it float over the page */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* semi-transparent dark overlay */
+    z-index: 9999; /* Ensure it's on top */
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 20px;
+}
+
+/* Main Message Box */
+.message-container {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 40px 30px;
+    max-width: 600px;
+    width: 100%;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); /* stronger shadow for floating look */
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    animation: fadeInScale 0.3s ease;
+}
+
+/* Animation for pop-in effect */
+@keyframes fadeInScale {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Header */
+.message-container h3 {
+    font-size: 28px;
+    color: #27ae60;
+    margin-bottom: 20px;
+}
+
+/* Order Summary Box */
+.order-detail {
+    background: #fafafa;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    font-size: 18px;
+}
+
+/* Total Price Highlight */
+.order-detail .total {
+    font-weight: bold;
+    color: #333;
+}
+
+/* Customer Info */
+.customer-details {
+    text-align: left;
+    font-size: 16px;
+    margin-bottom: 20px;
+    line-height: 1.6;
+    color: #444;
+}
+
+.customer-details span {
+    font-weight: 500;
+    color: #222;
+}
+
+/* Continue Button */
+.message-container .btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 12px 24px;
+    background: #27ae60;
+    color: #fff;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+.message-container .btn:hover {
+    background: #219150;
+}
+
+
+/* ===================== */
+/* Footer */
+.top-footer {
+  width: 100%;
+  background-color: #2E8B57;
+  padding: 2rem;
+  text-align: center;
+  color: white;
+}
+
+.subscribe-input {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.subscribe-input .email {
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: none;
+  width: 250px;
+}
+
+.top-footer .btn {
+  background-color: #A8D5BA;
+  color: #2C2C2C;
+  font-weight: 600;
+  padding: 0.5rem 1.5rem;
+  border-radius: 25px;
+  border: none;
+}
+
+.top-footer .btn:hover {
+  background-color: #256c47;
+  color: white;
+}
+
+footer .inner-footer {
+  background-color: #1b3a2b;
+  color: white;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+  padding: 2rem 2rem 2rem 11rem;
+}
+
+footer .inner-footer .card h3 {
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  color: #A8D5BA;
+}
+
+footer .inner-footer .card a {
+  color: #ccc;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  font-size: 0.95rem;
+  line-height: 2;
+}
+
+footer .inner-footer .card a:hover {
+  color: #ffffff;
+}
+
+.bottom-footer {
+  background-color: #15382e;
+  color: #ccc;
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+}
+
+.bottom-footer span {
+  color: #A8D5BA;
+}
+
+/* ===================== */
+/* Responsive */
+@media (max-width: 768px) {
+  section {
+    padding: 40px 20px;
+  }
+
+  .home_text {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .home_text img {
+    width: 200px;
+  }
+
+  .subscribe-input {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .navbar {
+    display: none;
+  }
+
+  #menu-btn {
+    display: inline-block;
+  }
+
+  .navbar.active {
+    display: block;
+    background: #2E8B57;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    padding: 1rem;
+  }
+
+  .navbar.active a {
+    display: block;
+    margin: 1rem 0;
+  }
+}

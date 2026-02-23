@@ -1,0 +1,255 @@
+/* =================== GLOBAL THEME VARIABLES =================== */
+:root {
+  /* Light Theme */
+  --primary-light: #1E88E5;
+  --accent-light: #FF3C38;
+  --secondary-light: #FFB74D;
+  --bg-light: #f5f5f5;
+  --card-bg-light: #ffffff;
+  --text-light: #333333;
+  --text-muted-light: #666666;
+  --border-light: #dddddd;
+  --input-bg-light: #ffffff;
+  --shadow-light: rgba(0, 0, 0, 0.1);
+  --error-bg-light: #FFEBEE;
+  --error-text-light: #C62828;
+
+  /* Dark Theme */
+  --primary-dark: #3CBEFF;
+  --accent-dark: #FF3C38;
+  --secondary-dark: #FF8C42;
+  --bg-dark: #0F0F0F;
+  --card-bg-dark: #1C1C1C;
+  --text-dark: #F0F0F0;
+  --text-muted-dark: #CCCCCC;
+  --border-dark: #333333;
+  --input-bg-dark: #2A2A2A;
+  --shadow-dark: rgba(60, 190, 255, 0.1);
+  --error-bg-dark: #3A1C1C;
+  --error-text-dark: #FF5252;
+
+  /* Active Theme - Default to Dark */
+  --primary: var(--primary-dark);
+  --accent: var(--accent-dark);
+  --secondary: var(--secondary-dark);
+  --bg: var(--bg-dark);
+  --card-bg: var(--card-bg-dark);
+  --text: var(--text-dark);
+  --text-muted: var(--text-muted-dark);
+  --border: var(--border-dark);
+  --input-bg: var(--input-bg-dark);
+  --shadow: var(--shadow-dark);
+  --error-bg: var(--error-bg-dark);
+  --error-text: var(--error-text-dark);
+}
+
+[data-theme="light"] {
+  --primary: var(--primary-light);
+  --accent: var(--accent-light);
+  --secondary: var(--secondary-light);
+  --bg: var(--bg-light);
+  --card-bg: var(--card-bg-light);
+  --text: var(--text-light);
+  --text-muted: var(--text-muted-light);
+  --border: var(--border-light);
+  --input-bg: var(--input-bg-light);
+  --shadow: var(--shadow-light);
+  --error-bg: var(--error-bg-light);
+  --error-text: var(--error-text-light);
+}
+
+/* =================== BASE STYLES =================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', 'Roboto', sans-serif;
+  scroll-behavior: smooth;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+body {
+  background-color: var(--bg);
+  background-image: url("images/forest.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* =================== AUTH FORM STYLES =================== */
+.login,
+.register {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 2rem;
+  position: relative;
+}
+
+.login::before,
+.register::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(15, 15, 15, 0.7);
+  z-index: -1;
+}
+
+[data-theme="light"] .login::before,
+[data-theme="light"] .register::before {
+  background-color: rgba(245, 245, 245, 0.8);
+}
+
+.box {
+  background-color: var(--card-bg);
+  display: flex;
+  flex-direction: column;
+  padding: 2.5rem;
+  border-radius: 1.25rem;
+  box-shadow: 0 10px 25px var(--shadow);
+  width: 100%;
+  max-width: 28rem;
+  margin: 1rem auto;
+  border: 1px solid var(--border);
+}
+
+.form-box header {
+  font-size: 1.875rem;
+  font-weight: 600;
+  padding-bottom: 0.625rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  color: var(--primary);
+}
+
+.form-box form .field {
+  display: flex;
+  margin-bottom: 1rem;
+  flex-direction: column;
+  text-align: left;
+  font-weight: 500;
+}
+
+.form-box form .input input {
+  height: 2.5rem;
+  font-size: 1rem;
+  padding: 0 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--primary);
+  outline: none;
+  margin-top: 0.5rem;
+  background-color: var(--input-bg);
+  color: var(--text);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-box form .input input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(255, 60, 56, 0.2);
+}
+
+.button {
+  height: 2.5rem;
+  background: linear-gradient(45deg, var(--accent), var(--secondary));
+  border-radius: 0.5rem;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+  width: 100%;
+}
+
+.button:hover {
+  background: linear-gradient(45deg, #FF5E5B, #FF9E42);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px var(--shadow);
+}
+
+.reg_link_div,
+.log_link {
+  text-align: center;
+  margin-top: 1.5rem;
+  font-size: 0.875rem;
+}
+
+.reg_link,
+.reset_password_link,
+.log_link a {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.reg_link:hover,
+.reset_password_link:hover,
+.log_link a:hover {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+.reset_password_link {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.error {
+  background-color: var(--error-bg);
+  color: var(--error-text);
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+/* =================== RESPONSIVE DESIGN =================== */
+@media (max-width: 480px) {
+  .box {
+    padding: 1.5rem;
+    border-radius: 1rem;
+  }
+  
+  .form-box header {
+    font-size: 1.5rem;
+  }
+  
+  .login,
+  .register {
+    padding: 1rem;
+  }
+}
+
+/* =================== THEME TOGGLE BUTTON =================== */
+.theme-toggle-container {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+.theme-toggle-btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--text);
+  transition: transform 0.3s ease;
+}
+
+.theme-toggle-btn:hover {
+  transform: scale(1.1);
+}

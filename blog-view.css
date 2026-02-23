@@ -1,0 +1,309 @@
+/* =================== GLOBAL THEME VARIABLES =================== */
+:root {
+  /* Light Theme */
+  --primary-light: #1E88E5;
+  --accent-light: #FF3C38;
+  --secondary-light: #FFB74D;
+  --bg-light: #f8fafc; 
+  --card-bg-light: #ffffff;
+  --text-light: #222222;
+  --text-muted-light: #666666;
+  --border-light: #e2e8f0;
+  --input-bg-light: #ffffff;
+  --shadow-light: rgba(0, 0, 0, 0.08);
+
+  /* Dark Theme */
+  --primary-dark: #60A5FA;
+  --accent-dark: #F87171;
+  --secondary-dark: #FBBF24;
+  --bg-dark: #0f172a;
+  --card-bg-dark: #1e293b;
+  --text-dark: #E2E8F0;
+  --text-muted-dark: #94a3b8;
+  --border-dark: #334155;
+  --input-bg-dark: #1e293b;
+  --shadow-dark: rgba(0, 0, 0, 0.4);
+
+  /* Active Theme (default to Light) */
+  --primary: var(--primary-light);
+  --accent: var(--accent-light);
+  --secondary: var(--secondary-light);
+  --bg: var(--bg-light);
+  --card-bg: var(--card-bg-light);
+  --text: var(--text-light);
+  --text-muted: var(--text-muted-light);
+  --border: var(--border-light);
+  --input-bg: var(--input-bg-light);
+  --shadow: var(--shadow-light);
+}
+
+[data-theme="dark"] {
+  --primary: var(--primary-dark);
+  --accent: var(--accent-dark);
+  --secondary: var(--secondary-dark);
+  --bg: var(--bg-dark);
+  --card-bg: var(--card-bg-dark);
+  --text: var(--text-dark);
+  --text-muted: var(--text-muted-dark);
+  --border: var(--border-dark);
+  --input-bg: var(--input-bg-dark);
+  --shadow: var(--shadow-dark);
+}
+
+/* =================== GLOBAL BASE STYLES =================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  font-family: 'Roboto', 'Segoe UI', sans-serif;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+section {
+  padding: 50px 100px;
+}
+
+@media (max-width: 768px) {
+  section {
+    padding: 40px 20px;
+  }
+}
+
+/* ======== HEADER ======== */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--card-bg);
+  padding: 1rem 7%;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+}
+
+.logo {
+  cursor: pointer;
+  width: 100px;
+  height: 60px;
+}
+
+.navbar a {
+  margin: 0 1.5rem;
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 600;
+  font-size: 18px;
+  transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+  color: var(--accent);
+}
+
+.right_links a {
+  padding: 10px 20px;
+  background-color: var(--primary);
+  border-radius: 6px;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.right_links a:hover {
+  background-color: var(--accent);
+}
+
+.welcome-user span {
+  margin-left: 10px;
+  color: var(--text);
+  font-size: 18px;
+  font-weight: 600;
+}
+
+/* ======== MAIN CONTENT ======== */
+.page-wrapper {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.products {
+  flex: 3;
+}
+
+.posts-container {
+  max-width: 1000px;
+  padding: 30px;
+}
+
+.blog-box .image img {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 25px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+}
+
+.blog-box .content h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: var(--text);
+}
+
+.blog-box .meta {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 25px;
+  font-style: italic;
+}
+
+.blog-box .content p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--text);
+  text-align: justify;
+}
+
+/* ======== COMMENTS ======== */
+.comment-container {
+  margin-top: 40px;
+  border-radius: 12px;
+}
+
+.comment-container h3 {
+  font-size: 22px;
+  margin-bottom: 15px;
+  color: var(--primary);
+}
+
+textarea {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  resize: vertical;
+  font-size: 15px;
+  background-color: var(--input-bg);
+  color: var(--text);
+}
+
+textarea::placeholder {
+  color: var(--text-muted);
+}
+
+.submit_btn {
+  margin-top: 15px;
+  background-color: var(--primary);
+  color: white;
+  padding: 10px 22px;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.submit_btn:hover {
+  background-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.single-comment {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 15px;
+}
+
+.comment-avatar {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.comment-body {
+  flex: 1;
+}
+
+.comment-body strong {
+  font-size: 16px;
+  color: var(--text);
+}
+
+.comment-time {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-left: 10px;
+}
+
+.comment-body p {
+  margin: 5px 0 0;
+  font-size: 14px;
+  color: var(--text);
+}
+
+/* ======== SIDEBAR ======== */
+.right-side {
+  flex: 1;
+  background-color: var(--card-bg);
+  padding: 40px;
+  box-shadow: 0 0 12px rgba(0,0,0,0.06);
+  border-radius: 10px;
+}
+
+.right-side h3 {
+  font-size: 22px;
+  margin-bottom: 15px;
+  border-bottom: 2px solid var(--border);
+  padding-bottom: 5px;
+}
+
+.right-side ul {
+  padding-left: 0;
+}
+
+.right-side li {
+  list-style: none;
+  margin-top: 12px;
+  font-size: 18px;
+}
+
+.right-side li a {
+  text-decoration: none;
+  color: var(--text);
+  transition: color 0.2s ease, padding-left 0.2s ease;
+}
+
+.right-side li a:hover {
+  color: var(--primary);
+  padding-left: 5px;
+}
+
+/* ======== RESPONSIVE ======== */
+@media (max-width: 768px) {
+  section {
+    padding: 30px 20px;
+  }
+
+  .blog-box .content h2 {
+    font-size: 1.5rem;
+  }
+
+  .posts-container {
+    padding: 20px;
+  }
+
+  .page-wrapper {
+    flex-direction: column;
+  }
+}
